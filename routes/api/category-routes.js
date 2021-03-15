@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
       attributes: ['product_name', 'price', 'stock']
     }]
   })
-    .then(dbCategoryData => res.json(dbCategiryData))
+    .then(dbCategoryData => res.json(dbCategoryData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
         res.status(404).json({ message: 'No Category found with this id' });
         return;
       }
-      res.json(dbCategiryData)
+      res.json(dbCategoryData)
     })
     .catch(err => {
       console.log(err);
@@ -64,7 +64,7 @@ router.put('/:id', (req, res) => {
     }
   })
     .then(dbCategoryData => {
-      if (!dbUserData[0]) {
+      if (!dbCategoryData[0]) {
         res.status(404).json({ message: 'No user found with this id' });
         return;
       }
